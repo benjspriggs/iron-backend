@@ -6,7 +6,7 @@ const octokit = require("@octokit/rest")({
   headers: {
     accept: "application/vnd.github.v3+json",
     "user-agent": "octokit/rest.js v15.9.4",
-    Authorization: "token " + process.env.GH_TOKEN
+    "Authorization": "token " + process.env.GH_TOKEN
   }
 })
 const Parallel = require("async-parallel")
