@@ -1,14 +1,18 @@
 require("dotenv").config()
 
 const express = require("express")
-const octokit = require("@octokit/rest")({
+const octokit_config = {
   timeout: 0,
   headers: {
     accept: "application/vnd.github.v3+json",
     "user-agent": "octokit/rest.js v15.9.4",
     "Authorization": "token " + process.env.GH_TOKEN
   }
-})
+}
+
+console.log("configuring octokit...")
+console.dir(octokit_config)
+const octokit = require("@octokit/rest")(octokit_config)
 const Parallel = require("async-parallel")
 
 const _ = require("lodash")
